@@ -5,4 +5,4 @@ const Schema = mongoose.Schema
 let TypeSchema = Schema({
     name: String
 })
-module.exports= mongoose.model('Type',TypeSchema,'projects')
+module.exports = mongoose.model('Type', TypeSchema,'MakeupTypeList')
