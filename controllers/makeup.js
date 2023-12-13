@@ -11,13 +11,16 @@ const controller = {
             .catch(err => res.status(500).send({ message: `Error: ${err}` }))
     },
 
-    //   getShows: function (req, res) {
-    //     Show.find({}).exec()
-    //         .then(showsList => {
-    //             if (!showsList) return res.status(404).send({ message: "No data found" })
-    //             return res.status(200).json(showsList)
-    //         })
-    //         .catch(err => res.status(500).send({ message: `Error: ${err}` }))
-    // },
+    //two get
+    getMakeuplists: function (req, res){
+        let makeupId = req.params.id
+        if(makeupId == null) return res.status(404).send({message:"Makeup List nof Found"})
+
+        Makeup.findById(makeupId).exec()
+        .then(data=>{
+            if(!data) return res.status(200).json(data)
+        })
+    .catch(err => res.status(500).send({message:`Internal ERROR${err}`}))
+    }
 }
 module.exports = controller
